@@ -30,22 +30,22 @@
       margin: 0 auto;
     }
     .quiz-question {
-      margin-bottom: 20px; /* Space between questions */
+      margin-bottom: 20px;
     }
     .quiz-option {
       display: flex;
       align-items: center;
-      margin: 10px 0; /* Consistent spacing between options */
+      margin: 10px 0;
     }
     input[type="radio"] {
-      width: 20px; /* Fixed size instead of scale */
+      width: 20px;
       height: 20px;
-      margin: 0 15px 0 0; /* Right margin only, no left overlap */
+      margin: 0 15px 0 0;
       vertical-align: middle;
     }
     label {
       font-size: 1.1em;
-      line-height: 1.2; /* Match radio height */
+      line-height: 1.2;
     }
     input[type="button"] {
       font-size: 1.2em;
@@ -75,7 +75,7 @@
   <h1>Whistle a Tune</h1>
   <p>Whistling a tune is easier than you think! Start by puckering your lips into a small “O” shape—imagine you’re sipping through a tiny straw. Next, place your tongue just behind your bottom teeth, keeping it flat. Blow air gently through the “O” until you hear a sound. Adjust your lip tightness and airflow to change pitch—tighter lips for higher notes, looser for lower. Practice a simple tune like “Twinkle, Twinkle” (C-C-G-G-A-A-G): two short blows, two longer ones, two high notes, then back down. Wet your lips if they’re dry, and don’t overthink it—relax and experiment!</p>
   <h2>Quick Quiz</h2>
-  <form>
+  <form id="quizForm">
     <div class="quiz-question">
       <p>1. What shape should your lips make?</p>
       <div class="quiz-option"><input type="radio" name="q1" value="a" id="q1a"><label for="q1a">Flat line</label></div>
@@ -101,9 +101,14 @@
   <script>
     function checkQuiz() {
       let score = 0;
-      if (document.querySelector('input[name="q1"]:checked')?.value === "b") score++;
-      if (document.querySelector('input[name="q2"]:checked')?.value === "b") score++;
-      if (document.querySelector('input[name="q3"]:checked')?.value === "b") score++;
+      const q1 = document.querySelector('input[name="q1"]:checked');
+      const q2 = document.querySelector('input[name="q2"]:checked');
+      const q3 = document.querySelector('input[name="q3"]:checked');
+      
+      if (q1 && q1.value === "b") score++;
+      if (q2 && q2.value === "b") score++;
+      if (q3 && q3.value === "b") score++;
+      
       document.getElementById("result").innerHTML = "You got " + score + " out of 3!";
     }
   </script>
