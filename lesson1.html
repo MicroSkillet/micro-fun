@@ -1,6 +1,58 @@
 <!DOCTYPE html>
 <html>
-<body style="background-color: black; color: white; text-align: center;">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2em; /* Scales with screen */
+    }
+    p {
+      font-size: 1.2em;
+      line-height: 1.5;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    h2 {
+      font-size: 1.5em;
+    }
+    form {
+      font-size: 1.1em;
+    }
+    input[type="radio"] {
+      transform: scale(1.5); /* Bigger radio buttons */
+      margin: 10px;
+    }
+    input[type="button"] {
+      font-size: 1.2em;
+      padding: 10px 20px;
+      margin-top: 20px;
+    }
+    a {
+      color: white;
+      font-size: 1.2em;
+      text-decoration: none;
+      display: block;
+      margin-top: 20px;
+    }
+    #result {
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 1.5em; }
+      p, form, h2, input[type="button"], a, #result { font-size: 1em; }
+    }
+  </style>
+</head>
+<body>
   <h1>Whistle a Tune</h1>
   <p>Whistling a tune is easier than you think! Start by puckering your lips into a small “O” shape—imagine you’re sipping through a tiny straw. Next, place your tongue just behind your bottom teeth, keeping it flat. Blow air gently through the “O” until you hear a sound. Adjust your lip tightness and airflow to change pitch—tighter lips for higher notes, looser for lower. Practice a simple tune like “Twinkle, Twinkle” (C-C-G-G-A-A-G): two short blows, two longer ones, two high notes, then back down. Wet your lips if they’re dry, and don’t overthink it—relax and experiment!</p>
   <h2>Quick Quiz</h2>
@@ -20,7 +72,7 @@
     <input type="button" value="Check Answers" onclick="checkQuiz()">
   </form>
   <p id="result"></p>
-  <a href="index.html" style="color: white;">Back</a>
+  <a href="index.html">Back</a>
   <script>
     function checkQuiz() {
       let score = 0;
