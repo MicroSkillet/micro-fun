@@ -1,10 +1,34 @@
-
-
 <!DOCTYPE html>
 <html>
 <body style="background-color: black; color: white; text-align: center;">
   <h1>Whistle a Tune</h1>
-  <p>Lesson coming soon!</p>
+  <p>Whistling a tune is easier than you think! Start by puckering your lips into a small “O” shape—imagine you’re sipping through a tiny straw. Next, place your tongue just behind your bottom teeth, keeping it flat. Blow air gently through the “O” until you hear a sound. Adjust your lip tightness and airflow to change pitch—tighter lips for higher notes, looser for lower. Practice a simple tune like “Twinkle, Twinkle” (C-C-G-G-A-A-G): two short blows, two longer ones, two high notes, then back down. Wet your lips if they’re dry, and don’t overthink it—relax and experiment!</p>
+  <h2>Quick Quiz</h2>
+  <form>
+    <p>1. What shape should your lips make?</p>
+    <input type="radio" name="q1" value="a"> Flat line<br>
+    <input type="radio" name="q1" value="b"> Small “O”<br>
+    <input type="radio" name="q1" value="c"> Wide grin<br><br>
+    <p>2. Where does your tongue go?</p>
+    <input type="radio" name="q2" value="a"> Roof of mouth<br>
+    <input type="radio" name="q2" value="b"> Behind bottom teeth<br>
+    <input type="radio" name="q2" value="c"> Sticking out<br><br>
+    <p>3. How do you hit higher notes?</p>
+    <input type="radio" name="q3" value="a"> Blow harder<br>
+    <input type="radio" name="q3" value="b"> Tighten lips<br>
+    <input type="radio" name="q3" value="c"> Loosen lips<br><br>
+    <input type="button" value="Check Answers" onclick="checkQuiz()">
+  </form>
+  <p id="result"></p>
   <a href="index.html" style="color: white;">Back</a>
+  <script>
+    function checkQuiz() {
+      let score = 0;
+      if (document.querySelector('input[name="q1"]:checked')?.value === "b") score++;
+      if (document.querySelector('input[name="q2"]:checked')?.value === "b") score++;
+      if (document.querySelector('input[name="q3"]:checked')?.value === "b") score++;
+      document.getElementById("result").innerHTML = "You got " + score + " out of 3!";
+    }
+  </script>
 </body>
 </html>
