@@ -12,7 +12,7 @@
       padding: 20px;
     }
     h1 {
-      font-size: 2em; /* Scales with screen */
+      font-size: 2em;
     }
     p {
       font-size: 1.2em;
@@ -25,10 +25,18 @@
     }
     form {
       font-size: 1.1em;
+      text-align: left; /* Align quiz content left for readability */
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .quiz-option {
+      display: flex; /* Flexbox for perfect alignment */
+      align-items: center; /* Vertically center button and text */
+      margin: 15px 0; /* Space between options */
     }
     input[type="radio"] {
-      transform: scale(1.5); /* Bigger radio buttons */
-      margin: 10px;
+      transform: scale(1.5);
+      margin-right: 15px; /* Space between button and text */
     }
     input[type="button"] {
       font-size: 1.2em;
@@ -58,29 +66,11 @@
   <h2>Quick Quiz</h2>
   <form>
     <p>1. What shape should your lips make?</p>
-    <input type="radio" name="q1" value="a"> Flat line<br>
-    <input type="radio" name="q1" value="b"> Small “O”<br>
-    <input type="radio" name="q1" value="c"> Wide grin<br><br>
+    <div class="quiz-option"><input type="radio" name="q1" value="a"> Flat line</div>
+    <div class="quiz-option"><input type="radio" name="q1" value="b"> Small “O”</div>
+    <div class="quiz-option"><input type="radio" name="q1" value="c"> Wide grin</div>
+
     <p>2. Where does your tongue go?</p>
-    <input type="radio" name="q2" value="a"> Roof of mouth<br>
-    <input type="radio" name="q2" value="b"> Behind bottom teeth<br>
-    <input type="radio" name="q2" value="c"> Sticking out<br><br>
-    <p>3. How do you hit higher notes?</p>
-    <input type="radio" name="q3" value="a"> Blow harder<br>
-    <input type="radio" name="q3" value="b"> Tighten lips<br>
-    <input type="radio" name="q3" value="c"> Loosen lips<br><br>
-    <input type="button" value="Check Answers" onclick="checkQuiz()">
-  </form>
-  <p id="result"></p>
-  <a href="index.html">Back</a>
-  <script>
-    function checkQuiz() {
-      let score = 0;
-      if (document.querySelector('input[name="q1"]:checked')?.value === "b") score++;
-      if (document.querySelector('input[name="q2"]:checked')?.value === "b") score++;
-      if (document.querySelector('input[name="q3"]:checked')?.value === "b") score++;
-      document.getElementById("result").innerHTML = "You got " + score + " out of 3!";
-    }
-  </script>
-</body>
-</html>
+    <div class="quiz-option"><input type="radio" name="q2" value="a"> Roof of mouth</div>
+    <div class="quiz-option"><input type="radio" name="q2" value="b"> Behind bottom teeth</div>
+    <di
