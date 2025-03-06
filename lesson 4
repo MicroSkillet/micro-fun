@@ -1,0 +1,10 @@
+html
+
+<!DOCTYPE html>
+<html>
+<body style="background-color: black; color: white; text-align: center;">
+  <h1>Basic Card Trick</h1>
+  <p>Lesson coming soon!</p>
+  <a href="index.html" style="color: white;">Back</a>
+</body>
+</html>
