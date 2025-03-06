@@ -25,18 +25,27 @@
     }
     form {
       font-size: 1.1em;
-      text-align: left; /* Align quiz content left for readability */
+      text-align: left;
       max-width: 600px;
       margin: 0 auto;
     }
+    .quiz-question {
+      margin-bottom: 20px; /* Space between questions */
+    }
     .quiz-option {
-      display: flex; /* Flexbox for perfect alignment */
-      align-items: center; /* Vertically center button and text */
-      margin: 15px 0; /* Space between options */
+      display: flex;
+      align-items: center;
+      margin: 10px 0; /* Consistent spacing between options */
     }
     input[type="radio"] {
-      transform: scale(1.5);
-      margin-right: 15px; /* Space between button and text */
+      width: 20px; /* Fixed size instead of scale */
+      height: 20px;
+      margin: 0 15px 0 0; /* Right margin only, no left overlap */
+      vertical-align: middle;
+    }
+    label {
+      font-size: 1.1em;
+      line-height: 1.2; /* Match radio height */
     }
     input[type="button"] {
       font-size: 1.2em;
@@ -57,6 +66,8 @@
     @media (max-width: 600px) {
       h1 { font-size: 1.5em; }
       p, form, h2, input[type="button"], a, #result { font-size: 1em; }
+      input[type="radio"] { width: 18px; height: 18px; }
+      label { font-size: 1em; }
     }
   </style>
 </head>
@@ -65,12 +76,36 @@
   <p>Whistling a tune is easier than you think! Start by puckering your lips into a small “O” shape—imagine you’re sipping through a tiny straw. Next, place your tongue just behind your bottom teeth, keeping it flat. Blow air gently through the “O” until you hear a sound. Adjust your lip tightness and airflow to change pitch—tighter lips for higher notes, looser for lower. Practice a simple tune like “Twinkle, Twinkle” (C-C-G-G-A-A-G): two short blows, two longer ones, two high notes, then back down. Wet your lips if they’re dry, and don’t overthink it—relax and experiment!</p>
   <h2>Quick Quiz</h2>
   <form>
-    <p>1. What shape should your lips make?</p>
-    <div class="quiz-option"><input type="radio" name="q1" value="a"> Flat line</div>
-    <div class="quiz-option"><input type="radio" name="q1" value="b"> Small “O”</div>
-    <div class="quiz-option"><input type="radio" name="q1" value="c"> Wide grin</div>
-
-    <p>2. Where does your tongue go?</p>
-    <div class="quiz-option"><input type="radio" name="q2" value="a"> Roof of mouth</div>
-    <div class="quiz-option"><input type="radio" name="q2" value="b"> Behind bottom teeth</div>
-    <di
+    <div class="quiz-question">
+      <p>1. What shape should your lips make?</p>
+      <div class="quiz-option"><input type="radio" name="q1" value="a" id="q1a"><label for="q1a">Flat line</label></div>
+      <div class="quiz-option"><input type="radio" name="q1" value="b" id="q1b"><label for="q1b">Small “O”</label></div>
+      <div class="quiz-option"><input type="radio" name="q1" value="c" id="q1c"><label for="q1c">Wide grin</label></div>
+    </div>
+    <div class="quiz-question">
+      <p>2. Where does your tongue go?</p>
+      <div class="quiz-option"><input type="radio" name="q2" value="a" id="q2a"><label for="q2a">Roof of mouth</label></div>
+      <div class="quiz-option"><input type="radio" name="q2" value="b" id="q2b"><label for="q2b">Behind bottom teeth</label></div>
+      <div class="quiz-option"><input type="radio" name="q2" value="c" id="q2c"><label for="q2c">Sticking out</label></div>
+    </div>
+    <div class="quiz-question">
+      <p>3. How do you hit higher notes?</p>
+      <div class="quiz-option"><input type="radio" name="q3" value="a" id="q3a"><label for="q3a">Blow harder</label></div>
+      <div class="quiz-option"><input type="radio" name="q3" value="b" id="q3b"><label for="q3b">Tighten lips</label></div>
+      <div class="quiz-option"><input type="radio" name="q3" value="c" id="q3c"><label for="q3c">Loosen lips</label></div>
+    </div>
+    <input type="button" value="Check Answers" onclick="checkQuiz()">
+  </form>
+  <p id="result"></p>
+  <a href="index.html">Back</a>
+  <script>
+    function checkQuiz() {
+      let score = 0;
+      if (document.querySelector('input[name="q1"]:checked')?.value === "b") score++;
+      if (document.querySelector('input[name="q2"]:checked')?.value === "b") score++;
+      if (document.querySelector('input[name="q3"]:checked')?.value === "b") score++;
+      document.getElementById("result").innerHTML = "You got " + score + " out of 3!";
+    }
+  </script>
+</body>
+</html>
